@@ -6,10 +6,10 @@ const endAlignment = Alignment.bottomRight;
 
 //custom widget
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key, required this.colors});
+  GradientContainer({super.key, required this.colors});
 
   //this is shortcut
-  const GradientContainer.purple({super.key})
+  GradientContainer.purple({super.key})
       : colors = const [
           Color.fromARGB(255, 26, 2, 80),
           Color.fromARGB(255, 45, 7, 98),
@@ -18,10 +18,12 @@ class GradientContainer extends StatelessWidget {
   // GradientContainer.purple()
 
   final List<Color> colors;
+  var activeDiceImage = 'assets/images/dice-2.png';
 
   //function for press button
   void rollDice() {
-    print('Pressed');
+    activeDiceImage = 'assets/images/dice-4.png';
+    print('Changing images...');
   }
 
   @override
@@ -38,21 +40,24 @@ class GradientContainer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-          Image.asset(
-            'assets/images/dice-2.png', 
-            width: 200,
-          ),
-          const SizedBox(height: 20,),
-          TextButton(
-            onPressed: rollDice, 
-            style: TextButton.styleFrom(
-              // padding: const EdgeInsets.only(top: 20),
-              foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 28),
+            Image.asset(
+              activeDiceImage,
+              width: 200,
             ),
-            child: const Text('Roll Dice'),
-          )
-        ],),
+            const SizedBox(
+              height: 20,
+            ),
+            TextButton(
+              onPressed: rollDice,
+              style: TextButton.styleFrom(
+                // padding: const EdgeInsets.only(top: 20),
+                foregroundColor: Colors.white,
+                textStyle: const TextStyle(fontSize: 28),
+              ),
+              child: const Text('Roll Dice'),
+            )
+          ],
+        ),
       ),
     );
   }

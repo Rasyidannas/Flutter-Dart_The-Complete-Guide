@@ -13,7 +13,14 @@ class Quiz extends StatefulWidget {
 
 // private class
 class _QuizState extends State<Quiz> {
-  Widget activeScreen = const StartScreen(switchScreen);
+  Widget? activeScreen;
+
+  // this is widget lifecyle for once called/execution
+  @override
+  void initState() {
+    super.initState();
+    activeScreen = StartScreen(switchScreen);
+  }
 
   void switchScreen() {
     setState(() {
@@ -21,6 +28,7 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  // this is also widget lifecycle too
   @override
   Widget build(context) {
     return MaterialApp(

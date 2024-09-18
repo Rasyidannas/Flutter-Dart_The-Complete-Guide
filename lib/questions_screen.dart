@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key})
+  const QuestionsScreen({super.key});
 
   @override
   State<QuestionsScreen> createState() {
@@ -13,6 +13,6 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return Text('QuestionScreen')
+    return const Text('QuestionScreen');
   }
 }

@@ -20,20 +20,25 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment:
-            MainAxisAlignment.center, // this for make vertical (top to bottom)
-        children: [
-          Text(
-            currentQuestion.text,
-            style: const TextStyle(color: Colors.white),
-          ),
-          const SizedBox(height: 30),
-          //this is spread operator like in JS, it will spread the array to the
-          ...currentQuestion.answers.map((answer) {
-            return AnswerButton(answerText: answer, onTap: () {});
-          }),
-        ],
+      child: Container(
+        margin: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment
+              .center, // this for make vertical (top to bottom)
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQuestion.text,
+              style: const TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            //this is spread operator like in JS, it will spread the array to the
+            ...currentQuestion.answers.map((answer) {
+              return AnswerButton(answerText: answer, onTap: () {});
+            }),
+          ],
+        ),
       ),
     );
   }

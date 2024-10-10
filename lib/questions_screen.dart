@@ -17,8 +17,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
 
   void answerQuestion() {
+    // currentQuestionIndex = currentQuestionIndex + 1;
+    // currentQuestionIndex += 1;
     setState(() {
-      currentQuestionIndex++;
+      currentQuestionIndex++; // increments the value by 1
     });
   }
 
@@ -31,23 +33,23 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       child: Container(
         margin: const EdgeInsets.all(40),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment
-              .center, // this for make vertical (top to bottom)
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               currentQuestion.text,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(
+                color: Colors.white,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            //this is spread operator like in JS, it will spread the array to the
             ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(
                 answerText: answer,
                 onTap: answerQuestion,
               );
-            }),
+            })
           ],
         ),
       ),
